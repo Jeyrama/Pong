@@ -58,7 +58,7 @@ class Pong {
     },
     this.gameOver = false
   }
-  
+
   play(ballPos, playerPos) {
 
     this.turn = this.turn % 2 + 1;
@@ -80,3 +80,5 @@ class Pong {
     }  
   }
 }
+
+// or
