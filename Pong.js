@@ -44,3 +44,6 @@ Example:
   game.play(75, 25)  -> "Player 2 has won the game!";     // Player 1 misses again. Having 2 points Player 2 wins, so we return the corresponding string
   game.play(50, 50)  -> "Game Over!";                     // Another turn is made even though the game is already over
 */
+
+
+// Solution
