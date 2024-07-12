@@ -47,3 +47,36 @@ Example:
 
 
 // Solution
+
+class Pong {
+  constructor(maxScore) {
+    this.maxScore = maxScore;
+    this.turn = 0;
+    this.scores = {
+      1: 0,
+      2: 0
+    },
+    this.gameOver = false
+  }
+  
+  play(ballPos, playerPos) {
+
+    this.turn = this.turn % 2 + 1;
+  
+    if(this.gameOver){
+      return 'Game Over!';
+    }
+    
+    if(Math.abs(playerPos - ballPos) <= 3.5){
+      return `Player ${this.turn} has hit the ball!`;
+    } else {
+      this.scores[this.turn] += 1;
+      
+      if(this.scores[this.turn] == this.maxScore){
+        this.gameOver = true;
+        return `Player ${this.turn % 2 + 1} has won the game!`;
+      }  
+      return `Player ${this.turn} has missed the ball!`;
+    }  
+  }
+}
