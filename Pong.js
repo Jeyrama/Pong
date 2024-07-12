@@ -82,3 +82,29 @@ class Pong {
 }
 
 // or
+
+class Pong {
+  constructor(maxScore) {
+      this.maxScore = maxScore;
+      this.playerOrder = 0;
+      this.score = [0,0];
+      this.gameOver = false;
+  }
+
+  play(ballPos, playerPos) {
+      if (this.gameOver) return "Game Over!";
+  
+      let curPlayer = this.playerOrder % 2;
+      this.playerOrder++;
+  
+      if (Math.abs(ballPos-playerPos)<=3) return `Player ${curPlayer+1} has hit the ball!`;
+      else {
+          ++this.score[curPlayer];
+          if (this.score.every(a=>a<this.maxScore)) return `Player ${curPlayer+1} has missed the ball!`;
+          else {
+              this.gameOver = true;
+              return `Player ${2-curPlayer} has won the game!`
+          }
+      }    
+  }
+}
